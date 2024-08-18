@@ -1,6 +1,7 @@
 import {ConnectWallet} from "../components/ConnectWallet/ConnectWallet";
 import {useContext, useEffect} from "react";
 import {AuthContext} from "../contexts/AuthContext";
+import {Home} from "../components/Home";
 
 export const DApp = () => {
   const authContext = useContext(AuthContext);
@@ -12,7 +13,7 @@ export const DApp = () => {
   return (
     <div>
       {authContext.account ?
-        <div>Me cha may</div>
+        <Home />
         :
         <ConnectWallet></ConnectWallet>
       }

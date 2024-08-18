@@ -1,4 +1,4 @@
-import {createContext, useEffect, useState} from "react";
+import {createContext, useEffect, useMemo, useState} from "react";
 import {ethers} from "ethers";
 
 export const AuthContext = createContext(null);
@@ -8,6 +8,7 @@ export const AuthContextProvider = ({children}) => {
   const [account, setAccount] = useState(null);
   const [signer, setSigner] = useState(null);
   const [error, setError] = useState(null);
+  const [myBalance, setMyBalance] = useState(null);
 
   useEffect(() => {
     const checkConnection = async () => {
@@ -50,7 +51,8 @@ export const AuthContextProvider = ({children}) => {
     account,
     signer,
     error,
-    connectMetaMask
+    connectMetaMask,
+    myBalance
   }
 
   return (
